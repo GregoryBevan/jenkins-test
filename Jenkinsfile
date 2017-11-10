@@ -7,9 +7,14 @@ pipeline {
     stages {
         stage('Git tag') {
             steps {
-                sh "git config --global user.email 'gregory_bevan@hotmail.com'"
-                sh "git config --global user.name $GIT_USER_USR"
-                sh "git tag -a $VERSION -m 'Release $VERSION' && git push --tags"
+                withCredentials([usernamePassword(credentialsId: '290dbd22-1aa1-40d8-b0ee-88b84c8d5612', 
+                                                  passwordVariable: 'GIT_PWD', 
+                                                  usernameVariable: 'GIT_USR')]) {
+                    sh "git config --global user.email 'gregory_bevan@hotmail.com'"
+                    sh "git config --global user.name $GIT_USR"
+                    sh "git remote set-url origin https://$GIT_USR:$GIT_PWD@github.com/GregoryBevan/jenkins-test.git"
+                    sh "git tag -a $VERSION -m 'Release $VERSION' && git push --tags"
+                }
             }
         }
     }
