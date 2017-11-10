@@ -6,7 +6,7 @@ pipeline {
     stages {
         stage('Git tag') {
             steps {
-                sh "git tag -d $VERSION && git push --tags"
+                sh "git tag -a $VERSION && git push --tags"
             }
         }
     }
