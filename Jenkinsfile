@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        VERSION = '1.0.0'
+        VERSION = '1.0.1'
         GIT_USER = credentials('290dbd22-1aa1-40d8-b0ee-88b84c8d5612')
     }
     stages {
