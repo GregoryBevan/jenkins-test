@@ -9,7 +9,7 @@ pipeline {
             steps {
                 sh "git config --global user.email 'gregory_bevan@hotmail.com'"
                 sh "git config --global user.name $GIT_USER_USR"
-                sh "git tag -a $VERSION && git push --tags"
+                sh "git tag -a $VERSION -m 'Release $VERSION' && git push --tags"
             }
         }
     }
