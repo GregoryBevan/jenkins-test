@@ -5,6 +5,11 @@ pipeline {
         GIT_USER = credentials('290dbd22-1aa1-40d8-b0ee-88b84c8d5612')
     }
     stages {
+        stage('Clean') {
+            steps {
+                cleanWs()
+            }
+        }
         // stage('Git tag') {
         //     steps {
         //         withCredentials([usernamePassword(credentialsId: '290dbd22-1aa1-40d8-b0ee-88b84c8d5612', 
@@ -19,7 +24,7 @@ pipeline {
         // }
         stage('Deploy') {
             steps {
-                sh "sed -i 's/{{ CURRENT_VERSION }}/$VERSION/' version.js.txt"
+                sh "sed -i 's/\$CURRENT_VERSION/$VERSION/' version.js.txt"
                 xldCreatePackage artifactsPath: '.', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'  
             } 
             // stage('Publish') {  
