@@ -4,7 +4,7 @@
     <file.File name="index.html" file="index.html">
         <scanPlaceholders>false</scanPlaceholders>
     </file.File>
-    <file.File name="version.js" file="version.js">
+    <file.File name="version.js" file="version.js.txt">
         <scanPlaceholders>true</scanPlaceholders>
     </file.File>
   </deployables>
