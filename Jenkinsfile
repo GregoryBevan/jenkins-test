@@ -18,11 +18,9 @@ pipeline {
         //     }
         // }
         stage('Deploy') {
-            stage('Package') {
-                steps {
-                    xldCreatePackage artifactsPath: '.', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'  
-                }  
-            }  
+            steps {
+                xldCreatePackage artifactsPath: '.', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'  
+            } 
             // stage('Publish') {  
             //     xldPublishPackage serverCredentials: '<user_name>', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'
             // }  
