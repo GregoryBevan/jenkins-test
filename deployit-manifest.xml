@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<udm.DeploymentPackage version="$LESLI_BACK_VERSION" application="GDL/LESLI/LESLI-BACK">
+<udm.DeploymentPackage version="$VERSION" application="GDL/LESLI/LESLI-BACK">
   <deployables>
     <file.File name="index.html" file="index.html">
         <scanPlaceholders>false</scanPlaceholders>
