@@ -20,7 +20,6 @@ pipeline {
         stage('Deploy') {
             steps {
                 sh "sed 's/\$CURRENT_VERSION/$VERSION/' version.js.txt"
-                    sed 's/default='$ORIG_COUNT'/default='$COUNT'/' test
                 xldCreatePackage artifactsPath: '.', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'  
             } 
             // stage('Publish') {  
