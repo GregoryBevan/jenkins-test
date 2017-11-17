@@ -19,7 +19,7 @@ pipeline {
         // }
         stage('Deploy') {
             steps {
-                sh "sed 's/\$CURRENT_VERSION/$VERSION/' version.js.txt"
+                sh "sed 's/{{ CURRENT_VERSION }}/$VERSION/' version.js.txt"
                 xldCreatePackage artifactsPath: '.', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.dar'  
             } 
             // stage('Publish') {  
